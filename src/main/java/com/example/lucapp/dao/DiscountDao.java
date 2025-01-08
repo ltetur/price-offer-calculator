@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DiscountDao extends JpaRepository<Discount, Integer> {
 
-    @Query(value = "SELECT d.coeficient FROM discount d WHERE d.limit_czk <=:priceWithoutDelivery ORDER BY d.limit_czk DESC LIMIT 1", nativeQuery = true)
+    @Query(value = "SELECT d.coefficient FROM discount d WHERE d.limit_czk <=:priceWithoutDelivery ORDER BY d.limit_czk DESC LIMIT 1", nativeQuery = true)
     Double getDiscount(@Param("priceWithoutDelivery") Double priceWithoutDelivery);
 }
 

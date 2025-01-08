@@ -1,4 +1,4 @@
-package com.example.lucapp.service;
+package com.example.lucapp.service.calculation;
 
 import com.example.lucapp.dto.OrderDetailsDto;
 import org.slf4j.Logger;
@@ -44,7 +44,4 @@ public class OfferService {
         }
         return text.replaceAll("\\r?\\n", "<br>");
     }
-
-
-
 }

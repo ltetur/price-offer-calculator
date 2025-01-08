@@ -1,7 +1,7 @@
 package com.example.lucapp.controller;
 
 import com.example.lucapp.dto.OrderDetailsDto;
-import com.example.lucapp.service.OfferService;
+import com.example.lucapp.service.calculation.OfferService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;

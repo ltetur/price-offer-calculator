@@ -1,6 +1,7 @@
-package com.example.lucapp.service;
+package com.example.lucapp.service.calculation;
 
 import com.example.lucapp.dto.OrderDetailsDto;
+import com.example.lucapp.service.calculation.CalculationService;
 import org.springframework.stereotype.Service;
 
 import java.text.NumberFormat;

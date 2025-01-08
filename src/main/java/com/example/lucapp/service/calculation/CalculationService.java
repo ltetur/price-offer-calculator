@@ -1,4 +1,4 @@
-package com.example.lucapp.service;
+package com.example.lucapp.service.calculation;
 
 import com.example.lucapp.dao.AccessoryDao;
 import com.example.lucapp.dao.DiscountDao;
