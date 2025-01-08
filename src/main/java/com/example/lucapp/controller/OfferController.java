@@ -20,7 +20,7 @@ public class OfferController {
     }
 
     @PostMapping
-    public ModelAndView calculateOffer(@Valid @RequestBody OrderDetailsDto orderDetailsDto) {
+    public ModelAndView calculateOfferAndFormatToHtml(@Valid @RequestBody OrderDetailsDto orderDetailsDto) {
 
         ModelAndView modelAndView = new ModelAndView(orderDetailsDto.getHtmlTemplate());
 
