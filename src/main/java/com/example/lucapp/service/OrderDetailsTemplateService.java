@@ -1,8 +1,8 @@
 package com.example.lucapp.service;
 
-import com.example.lucapp.dao.OrderDetailsTemplateDao;
+import com.example.lucapp.persistence.dao.OrderDetailsTemplateDao;
 import com.example.lucapp.dto.OrderDetailsTemplateDto;
-import com.example.lucapp.entity.OrderDetailsTemplate;
+import com.example.lucapp.persistence.entity.OrderDetailsTemplate;
 import com.example.lucapp.dto.OrderDetailsTemplateWrapper;
 import com.example.lucapp.exception.OrderNotFoundException;
 import com.example.lucapp.exception.TemplateNotFoundException;

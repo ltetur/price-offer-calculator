@@ -1,4 +1,4 @@
-package com.example.lucapp.entity;
+package com.example.lucapp.persistence.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,11 +11,13 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Data
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Discount {
+public class Item {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-    private Double limitCzk;
-    private Double coefficient;
+    private String name;
+    private Double priceCzk;
+    private Double instalInH;
+    private Double deinstalInH;
 
 }

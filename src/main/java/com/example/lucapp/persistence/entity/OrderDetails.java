@@ -1,4 +1,4 @@
-package com.example.lucapp.entity;
+package com.example.lucapp.persistence.entity;
 
 
 import jakarta.persistence.Column;

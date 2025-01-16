@@ -1,13 +1,13 @@
 package com.example.lucapp.service.calculation;
 
-import com.example.lucapp.dao.AccessoryDao;
-import com.example.lucapp.dao.DiscountDao;
-import com.example.lucapp.dao.SetUpDao;
-import com.example.lucapp.dao.SluzbaDao;
+import com.example.lucapp.persistence.dao.AccessoryDao;
+import com.example.lucapp.persistence.dao.DiscountDao;
+import com.example.lucapp.persistence.dao.SetUpDao;
+import com.example.lucapp.persistence.dao.SluzbaDao;
 import com.example.lucapp.dto.OrderDetailsDto;
-import com.example.lucapp.entity.Accessory;
-import com.example.lucapp.entity.Item;
-import com.example.lucapp.entity.SetUp;
+import com.example.lucapp.persistence.entity.Accessory;
+import com.example.lucapp.persistence.entity.Item;
+import com.example.lucapp.persistence.entity.SetUp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

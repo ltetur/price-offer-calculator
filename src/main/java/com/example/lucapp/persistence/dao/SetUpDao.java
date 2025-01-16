@@ -1,6 +1,6 @@
-package com.example.lucapp.dao;
+package com.example.lucapp.persistence.dao;
 
-import com.example.lucapp.entity.SetUp;
+import com.example.lucapp.persistence.entity.SetUp;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

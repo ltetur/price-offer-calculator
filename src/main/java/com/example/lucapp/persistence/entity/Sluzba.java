@@ -1,4 +1,4 @@
-package com.example.lucapp.entity;
+package com.example.lucapp.persistence.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,10 +11,10 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Data
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Accessory {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Sluzba {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private Integer priceCzk;
+    private Double price;
 }

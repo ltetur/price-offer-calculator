@@ -1,7 +1,7 @@
 package com.example.lucapp.mapper.impl;
 
 import com.example.lucapp.dto.OrderDetailsTemplateDto;
-import com.example.lucapp.entity.OrderDetailsTemplate;
+import com.example.lucapp.persistence.entity.OrderDetailsTemplate;
 import com.example.lucapp.mapper.Mapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
