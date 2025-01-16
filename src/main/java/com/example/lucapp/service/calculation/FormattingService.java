@@ -1,7 +1,6 @@
 package com.example.lucapp.service.calculation;
 
 import com.example.lucapp.dto.OrderDetailsDto;
-import com.example.lucapp.service.calculation.CalculationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -47,14 +46,14 @@ public class FormattingService {
                     Long count = entry.getValue();
                     Long price = count * calculationService.getSetUpCost(orderDetailsDto, id);
                     return count + "x " + calculationService.getSetupById(id).getDescription() + " " + formatPriceNumber(price);
-                }).collect(Collectors.toList());
+                }).toList();
     }
 
     private List<String> getListOfAccessoriesDescriptionByIds(List<Integer> accessoryIds) {
         return accessoryIds.stream()
                 .map(calculationService::getAccessoryById)
                 .map(a-> a.getName() + " " + formatPriceNumber(a.getPriceCzk()))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     String formatCompleteOption(OrderDetailsDto orderDetailsDto, List<Integer> setUpIds, List<Integer> accessoryIds) {

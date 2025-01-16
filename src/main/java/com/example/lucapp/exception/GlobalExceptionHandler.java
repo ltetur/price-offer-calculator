@@ -1,5 +1,6 @@
 package com.example.lucapp.exception;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -25,6 +26,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler
 
     @ExceptionHandler(TemplateNotFoundException.class)
     public final ResponseEntity<ErrorDetails> handleTemplateNotFoundException(TemplateNotFoundException ex, WebRequest request) throws Exception {
+        ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(),
+                ex.getMessage(), request.getDescription(false));
+
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(TemplateNotFoundException.class)
+    public final ResponseEntity<ErrorDetails> handleEntityNotFoundException(EntityNotFoundException ex, WebRequest request) throws Exception {
         ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(),
                 ex.getMessage(), request.getDescription(false));
 

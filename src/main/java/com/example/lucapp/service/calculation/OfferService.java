@@ -2,18 +2,17 @@ package com.example.lucapp.service.calculation;
 
 import com.example.lucapp.dto.OrderDetailsDto;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class OfferService {
 
     private final FormattingService formattingService;
-    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     public String getCompleteFormattedOffer(OrderDetailsDto orderDetailsDto) {
 
@@ -25,7 +24,7 @@ public class OfferService {
         char iterator = 'A';
 
         for (int i = 0; i < ids.size(); i++) {
-            logger.info("Varianta: {}", iterator);
+            log.info("Varianta: {}", iterator);
             String variant = "Varianta " + iterator + ": " + formattingService.formatCompleteOption(orderDetailsDto, ids.get(i), accessoryIds.get(i));
             offer.append(variant).append(System.lineSeparator());
             iterator++;
