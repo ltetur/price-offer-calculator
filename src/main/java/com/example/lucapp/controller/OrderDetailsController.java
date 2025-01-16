@@ -4,6 +4,7 @@ package com.example.lucapp.controller;
 import com.example.lucapp.dto.OrderDetailsDto;
 import com.example.lucapp.service.OrderDetailsService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -13,12 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/orders")
+@RequiredArgsConstructor
 public class OrderDetailsController {
-    private final OrderDetailsService orderDetailsService;
 
-    public OrderDetailsController(OrderDetailsService orderDetailsService) {
-        this.orderDetailsService = orderDetailsService;
-    }
+    private final OrderDetailsService orderDetailsService;
 
     @PostMapping
     public ResponseEntity<OrderDetailsDto> saveOrderDetails(@Valid @RequestBody OrderDetailsDto orderDetailsDto) {

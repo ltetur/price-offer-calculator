@@ -1,6 +1,7 @@
 package com.example.lucapp.service.calculation;
 
 import com.example.lucapp.dto.OrderDetailsDto;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -8,16 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
+@RequiredArgsConstructor
 public class OfferService {
 
     private final FormattingService formattingService;
-
-    public OfferService(FormattingService formattingService) {
-        this.formattingService = formattingService;
-    }
-
     private final Logger logger = LoggerFactory.getLogger(getClass());
-
 
     public String getCompleteFormattedOffer(OrderDetailsDto orderDetailsDto) {
 

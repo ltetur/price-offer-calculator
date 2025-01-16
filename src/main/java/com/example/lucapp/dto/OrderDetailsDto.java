@@ -1,5 +1,6 @@
 package com.example.lucapp.dto;
 
+import com.example.lucapp.persistence.entity.OrderDetails;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,10 +41,30 @@ public class OrderDetailsDto {
     private String theme;
     private String company;
     @NotNull(message = "template value can not be null")
-    private String HtmlTemplate;
+    private String htmlTemplate;
     @NotNull(message = "setUpIds value can not be null")
     private List<List<Integer>> setUpIds;
     @NotNull(message = "accessories value can not be null")
     private List<List<Integer>> accessoryIds;
     private Boolean deliveryDiscountDisable;
+
+    public OrderDetailsDto(OrderDetails orderDetails) {
+        this.id = orderDetails.getId();
+        this.name = orderDetails.getName();
+        this.orderNumber = orderDetails.getOrderNumber();
+        this.days = orderDetails.getDays();
+        this.km = orderDetails.getKm();
+        this.hoursDay = orderDetails.getHoursDay();
+        this.hoursNight = orderDetails.getHoursNight();
+        this.morningInstall = orderDetails.getMorningInstall();
+        this.nightDeinstall = orderDetails.getNightDeinstall();
+        this.nights = orderDetails.getNights();
+        this.pricePerNight = orderDetails.getPricePerNight();
+        this.theme = orderDetails.getTheme();
+        this.company = orderDetails.getCompany();
+        this.htmlTemplate = orderDetails.getHtmlTemplate();
+        this.setUpIds = orderDetails.getSetUpIds();
+        this.accessoryIds = orderDetails.getAccessoryIds();
+        this.deliveryDiscountDisable = orderDetails.getDeliveryDiscountDisable();
+    }
 }

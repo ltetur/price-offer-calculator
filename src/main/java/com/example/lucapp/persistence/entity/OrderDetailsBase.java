@@ -28,10 +28,10 @@ public class OrderDetailsBase {
     private Integer pricePerNight;
     private String theme;
     private String company;
-    private String template;
+    private String htmlTemplate;
     @ElementCollection
     private List<List<Integer>> setUpIds;
     @ElementCollection
-    private List<List<Integer>> accessories;
+    private List<List<Integer>> accessoryIds;
     private Boolean deliveryDiscountDisable;
 }

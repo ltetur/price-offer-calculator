@@ -4,6 +4,7 @@ import com.example.lucapp.dto.OrderDetailsTemplateDto;
 import com.example.lucapp.dto.OrderDetailsTemplateWrapper;
 import com.example.lucapp.service.OrderDetailsTemplateService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -13,14 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("templates")
+@RequiredArgsConstructor
 public class OrderDetailsTemplateController {
 
     private final OrderDetailsTemplateService orderDetailsTemplateService;
-
-    public OrderDetailsTemplateController(OrderDetailsTemplateService orderDetailsTemplateService) {
-        this.orderDetailsTemplateService = orderDetailsTemplateService;
-
-    }
 
     @GetMapping
     public ResponseEntity<List<OrderDetailsTemplateWrapper>> getAllTemplates() {

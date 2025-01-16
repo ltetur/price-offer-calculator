@@ -2,6 +2,7 @@ package com.example.lucapp.service.calculation;
 
 import com.example.lucapp.dto.OrderDetailsDto;
 import com.example.lucapp.service.calculation.CalculationService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.text.NumberFormat;
@@ -11,13 +12,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class FormattingService {
 
     private final CalculationService calculationService;
-
-    public FormattingService(CalculationService calculationService) {
-        this.calculationService = calculationService;
-    }
 
     private static final NumberFormat NUMBER_FORMAT = NumberFormat.getInstance(Locale.forLanguageTag("cs-CZ"));
 
@@ -59,7 +57,7 @@ public class FormattingService {
                 .collect(Collectors.toList());
     }
 
-    protected String formatCompleteOption(OrderDetailsDto orderDetailsDto, List<Integer> setUpIds, List<Integer> accessoryIds) {
+    String formatCompleteOption(OrderDetailsDto orderDetailsDto, List<Integer> setUpIds, List<Integer> accessoryIds) {
 
         String names = setUpIds.stream().map(id -> calculationService.getSetupById(id).getCaption()).collect(Collectors.joining(", "));
         String descriptions = String.join(System.lineSeparator(), getGroupedListOfSetupDescriptionsByIds(orderDetailsDto, setUpIds));

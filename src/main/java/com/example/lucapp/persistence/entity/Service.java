@@ -11,7 +11,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Data
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Sluzba {
+public class Service {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
