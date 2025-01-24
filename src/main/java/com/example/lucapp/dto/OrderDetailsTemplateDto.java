@@ -3,6 +3,7 @@ package com.example.lucapp.dto;
 import com.example.lucapp.persistence.entity.OrderDetailsTemplate;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

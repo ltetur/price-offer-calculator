@@ -2,6 +2,7 @@ package com.example.lucapp.persistence.entity;
 
 import com.example.lucapp.dto.OrderDetailsTemplateDto;
 import jakarta.persistence.Entity;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

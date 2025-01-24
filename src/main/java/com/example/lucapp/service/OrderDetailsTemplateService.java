@@ -4,7 +4,6 @@ import com.example.lucapp.persistence.dao.OrderDetailsTemplateDao;
 import com.example.lucapp.dto.OrderDetailsTemplateDto;
 import com.example.lucapp.persistence.entity.OrderDetailsTemplate;
 import com.example.lucapp.dto.OrderDetailsTemplateWrapper;
-import com.example.lucapp.exception.OrderNotFoundException;
 import com.example.lucapp.exception.TemplateNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -116,7 +115,7 @@ public class OrderDetailsTemplateService {
 
     public OrderDetailsTemplateDto findById(Integer id) {
         OrderDetailsTemplate orderDetails = orderDetailsTemplateDao.findById(id).orElseThrow(
-                () -> new OrderNotFoundException("Template with id " + id + " not found.")
+                () -> new TemplateNotFoundException("Template with id " + id + " not found.")
         );
         return new OrderDetailsTemplateDto(orderDetails);
     }
