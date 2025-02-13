@@ -33,8 +33,6 @@ build/
 .vscode/
 
 # Ignore application config files with sensitive data
-application.properties
-application.yml
 .env
 
 # Ignore logs and temporary files
