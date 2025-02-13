@@ -1,8 +1,8 @@
-package com.example.lucapp.controller;
+package com.ltetur.calculator.controller;
 
-import com.example.lucapp.dto.OrderDetailsTemplateDto;
-import com.example.lucapp.dto.OrderDetailsTemplateWrapper;
-import com.example.lucapp.service.OrderDetailsTemplateService;
+import com.ltetur.calculator.dto.OrderDetailsTemplateDto;
+import com.ltetur.calculator.dto.OrderDetailsTemplateWrapper;
+import com.ltetur.calculator.service.OrderDetailsTemplateService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

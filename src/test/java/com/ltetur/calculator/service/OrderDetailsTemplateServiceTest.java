@@ -1,11 +1,11 @@
-package com.example.lucapp.service;
+package com.ltetur.calculator.service;
 
 
-import com.example.lucapp.dto.OrderDetailsTemplateDto;
-import com.example.lucapp.dto.OrderDetailsTemplateWrapper;
-import com.example.lucapp.exception.TemplateNotFoundException;
-import com.example.lucapp.persistence.dao.OrderDetailsTemplateDao;
-import com.example.lucapp.persistence.entity.OrderDetailsTemplate;
+import com.ltetur.calculator.dto.OrderDetailsTemplateDto;
+import com.ltetur.calculator.dto.OrderDetailsTemplateWrapper;
+import com.ltetur.calculator.exception.TemplateNotFoundException;
+import com.ltetur.calculator.persistence.dao.OrderDetailsTemplateDao;
+import com.ltetur.calculator.persistence.entity.OrderDetailsTemplate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

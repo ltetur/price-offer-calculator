@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ltetur</groupId>
-	<artifactId>price-offer-calculator</artifactId>
+	<artifactId>calculator</artifactId>
 	<version>0.0.1</version>
-	<name>price-offer-calculator</name>
+	<name>calculator</name>
 	<description>Spring Boot project</description>
 	<url/>
 	<licenses>

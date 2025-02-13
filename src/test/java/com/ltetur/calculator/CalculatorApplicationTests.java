@@ -1,4 +1,4 @@
-package com.example.lucapp;
+package com.ltetur.calculator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
