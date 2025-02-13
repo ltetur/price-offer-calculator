@@ -1,4 +1,4 @@
-package com.example.lucapp.persistence.entity;
+package com.ltetur.calculator.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,6 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+
+/**
+ * The {@code OrderDetailsBase} class serves as a base class for storing common order details.
+ * The class is extended by {@link OrderDetails} and {@link OrderDetailsTemplate}
+ */
 @Data
 @MappedSuperclass
 @NoArgsConstructor
@@ -26,8 +31,6 @@ public class OrderDetailsBase {
     private Boolean nightDeinstall;
     private Integer nights;
     private Integer pricePerNight;
-    private String theme;
-    private String company;
     private String htmlTemplate;
     @ElementCollection
     private List<List<Integer>> setUpIds;

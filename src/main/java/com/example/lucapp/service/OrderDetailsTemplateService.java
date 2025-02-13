@@ -1,10 +1,10 @@
-package com.example.lucapp.service;
+package com.ltetur.calculator.service;
 
-import com.example.lucapp.persistence.dao.OrderDetailsTemplateDao;
-import com.example.lucapp.dto.OrderDetailsTemplateDto;
-import com.example.lucapp.persistence.entity.OrderDetailsTemplate;
-import com.example.lucapp.dto.OrderDetailsTemplateWrapper;
-import com.example.lucapp.exception.TemplateNotFoundException;
+import com.ltetur.calculator.dto.OrderDetailsTemplateDto;
+import com.ltetur.calculator.dto.OrderDetailsTemplateWrapper;
+import com.ltetur.calculator.exception.TemplateNotFoundException;
+import com.ltetur.calculator.persistence.dao.OrderDetailsTemplateDao;
+import com.ltetur.calculator.persistence.entity.OrderDetailsTemplate;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,11 +12,23 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Service class for managing order details templates.
+ * Templates are useful to store pre-filled data for standard orders that are often repeated.
+ * Class provides functionality for retrieving, creating, updating, and deleting templates.
+ */
 @Service
 @RequiredArgsConstructor
 public class OrderDetailsTemplateService {
+
     private final OrderDetailsTemplateDao orderDetailsTemplateDao;
 
+    /**
+     * Retrieves all order details templates and wraps them into
+     * {@link OrderDetailsTemplateWrapper} objects.
+     *
+     * @return A list of {@link OrderDetailsTemplateWrapper} containing all templates.
+     */
     public List<OrderDetailsTemplateWrapper> getAllWrappedTemplates() {
         List<OrderDetailsTemplate> allTemplates = orderDetailsTemplateDao.findAll();
         return allTemplates.stream()
@@ -24,6 +36,12 @@ public class OrderDetailsTemplateService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Saves a new order details template based on the provided data transfer object (DTO).
+     *
+     * @param templateDto The DTO containing the template information to be saved.
+     * @return The saved template as an {@link OrderDetailsTemplateDto}.
+     */
     @Transactional
     public OrderDetailsTemplateDto saveTemplate(OrderDetailsTemplateDto templateDto) {
         OrderDetailsTemplate template = new OrderDetailsTemplate(templateDto);
@@ -31,13 +49,21 @@ public class OrderDetailsTemplateService {
         return new OrderDetailsTemplateDto(savedTemplate);
     }
 
+    /**
+     * Updates an existing order details template with the provided data from the DTO.
+     *
+     * @param templateDto The DTO containing the updated template information.
+     * @param id          The ID of the template to be updated.
+     * @return The updated template as an {@link OrderDetailsTemplateDto}.
+     * @throws TemplateNotFoundException if the template with the specified ID is not found.
+     */
     @Transactional
     public OrderDetailsTemplateDto updateTemplate(OrderDetailsTemplateDto templateDto, Integer id) {
 
         OrderDetailsTemplate existingTemplate = orderDetailsTemplateDao.findById(id).orElseThrow(
                 () -> new TemplateNotFoundException("Cannot be updated, template with id " + id + " not found."));
 
-        if(templateDto.getName() != null) {
+        if (templateDto.getName() != null) {
             existingTemplate.setName(templateDto.getName());
         }
 
@@ -77,14 +103,6 @@ public class OrderDetailsTemplateService {
             existingTemplate.setPricePerNight(templateDto.getPricePerNight());
         }
 
-        if (templateDto.getTheme() != null) {
-            existingTemplate.setTheme(templateDto.getTheme());
-        }
-
-        if (templateDto.getCompany() != null) {
-            existingTemplate.setCompany(templateDto.getCompany());
-        }
-
         if (templateDto.getHtmlTemplate() != null) {
             existingTemplate.setHtmlTemplate(templateDto.getHtmlTemplate());
         }
@@ -106,6 +124,12 @@ public class OrderDetailsTemplateService {
         return new OrderDetailsTemplateDto(updatedOrder);
     }
 
+    /**
+     * Deletes the order details template with the specified ID.
+     *
+     * @param id The ID of the template to be deleted.
+     * @throws TemplateNotFoundException if the template with the specified ID is not found.
+     */
     @Transactional
     public void deleteTemplate(Integer id) {
         orderDetailsTemplateDao.findById(id).orElseThrow(
@@ -113,6 +137,13 @@ public class OrderDetailsTemplateService {
         orderDetailsTemplateDao.deleteById(id);
     }
 
+    /**
+     * Finds an order details template by its ID.
+     *
+     * @param id The ID of the template to find.
+     * @return The found template as an {@link OrderDetailsTemplateDto}.
+     * @throws TemplateNotFoundException if the template with the specified ID is not found.
+     */
     public OrderDetailsTemplateDto findById(Integer id) {
         OrderDetailsTemplate orderDetails = orderDetailsTemplateDao.findById(id).orElseThrow(
                 () -> new TemplateNotFoundException("Template with id " + id + " not found.")

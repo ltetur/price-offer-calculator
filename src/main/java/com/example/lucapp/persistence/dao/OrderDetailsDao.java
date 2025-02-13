@@ -1,6 +1,6 @@
-package com.example.lucapp.persistence.dao;
+package com.ltetur.calculator.persistence.dao;
 
-import com.example.lucapp.persistence.entity.OrderDetails;
+import com.ltetur.calculator.persistence.entity.OrderDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

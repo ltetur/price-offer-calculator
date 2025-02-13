@@ -1,6 +1,6 @@
-package com.example.lucapp.dto;
+package com.ltetur.calculator.dto;
 
-import com.example.lucapp.persistence.entity.OrderDetails;
+import com.ltetur.calculator.persistence.entity.OrderDetails;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,6 +8,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+
+/**
+ * Data Transfer Object (DTO) for order details.
+ * This class is used to transfer order-related data between different layers of the application.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -38,8 +43,6 @@ public class OrderDetailsDto {
     private Integer nights;
     @Min(value = 0, message = "pricePerNight value must be >= 0")
     private Integer pricePerNight;
-    private String theme;
-    private String company;
     @NotNull(message = "template value can not be null")
     private String htmlTemplate;
     @NotNull(message = "setUpIds value can not be null")
@@ -48,6 +51,12 @@ public class OrderDetailsDto {
     private List<List<Integer>> accessoryIds;
     private Boolean deliveryDiscountDisable;
 
+
+    /**
+     * Constructs an OrderDetailsDto from an OrderDetails entity.
+     *
+     * @param orderDetails the OrderDetails entity to be converted
+     */
     public OrderDetailsDto(OrderDetails orderDetails) {
         this.id = orderDetails.getId();
         this.name = orderDetails.getName();
@@ -60,8 +69,6 @@ public class OrderDetailsDto {
         this.nightDeinstall = orderDetails.getNightDeinstall();
         this.nights = orderDetails.getNights();
         this.pricePerNight = orderDetails.getPricePerNight();
-        this.theme = orderDetails.getTheme();
-        this.company = orderDetails.getCompany();
         this.htmlTemplate = orderDetails.getHtmlTemplate();
         this.setUpIds = orderDetails.getSetUpIds();
         this.accessoryIds = orderDetails.getAccessoryIds();

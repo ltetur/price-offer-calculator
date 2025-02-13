@@ -1,13 +1,17 @@
-package com.example.lucapp.dto;
+package com.ltetur.calculator.dto;
 
-import com.example.lucapp.persistence.entity.OrderDetailsTemplate;
+import com.ltetur.calculator.persistence.entity.OrderDetailsTemplate;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+
+/**
+ * Data Transfer Object (DTO) for order details template.
+ * This class is used to transfer template-related data between different layers of the application.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,12 +30,16 @@ public class OrderDetailsTemplateDto {
     private Boolean nightDeinstall;
     private Integer nights;
     private Integer pricePerNight;
-    private String theme;
-    private String company;
     private String htmlTemplate;
     private List<List<Integer>> setUpIds;
     private List<List<Integer>> accessoryIds;
     private Boolean deliveryDiscountDisable;
+
+    /**
+     * Constructs an OrderDetailsTemplateDto from an OrderDetailsTemplate entity.
+     *
+     * @param orderDetailsTemplate the OrderDetailsTemplate entity to be converted
+     */
 
     public OrderDetailsTemplateDto(OrderDetailsTemplate orderDetailsTemplate) {
         this.id = orderDetailsTemplate.getId();
@@ -45,8 +53,6 @@ public class OrderDetailsTemplateDto {
         this.nightDeinstall = orderDetailsTemplate.getNightDeinstall();
         this.nights = orderDetailsTemplate.getNights();
         this.pricePerNight = orderDetailsTemplate.getPricePerNight();
-        this.theme = orderDetailsTemplate.getTheme();
-        this.company = orderDetailsTemplate.getCompany();
         this.htmlTemplate = orderDetailsTemplate.getHtmlTemplate();
         this.setUpIds = orderDetailsTemplate.getSetUpIds();
         this.accessoryIds = orderDetailsTemplate.getAccessoryIds();
